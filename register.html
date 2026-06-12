@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register - AI Prompt Evaluator</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    height: 100vh;
+    background: linear-gradient(135deg, #EAF4FF, #4DA3FF);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BIG GLASS CARD */
+.card {
+    width: 450px;
+    padding: 40px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
+    text-align: center;
+    color: white;
+}
+
+/* TITLE */
+.card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #1E3A8A;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0F172A;
+}
+
+/* LINK */
+a {
+    color: white;
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🧾 Create Account</h2>
+
+    <form method="POST">
+        <input name="username" placeholder="Username" required>
+        <input name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password">
+        <button type="submit">Register</button>
+    </form>
+
+    <p>Already have an account? <a href="/login">Login</a></p>
+</div>
+
+</body>
+</html>

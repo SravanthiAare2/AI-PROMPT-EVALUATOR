@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Analytics - AI Evaluator</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #EAF4FF, #4DA3FF);
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background: rgba(30,58,138,0.95);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    margin: 10px 0;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+}
+
+.sidebar a:hover {
+    background: #4DA3FF;
+}
+
+/* MAIN */
+.main {
+    margin-left: 270px;
+    padding: 30px;
+    width: 100%;
+}
+
+/* TITLE */
+h2 {
+    font-size: 32px;
+    color: #0F172A;
+}
+
+/* CARDS */
+.card {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    border-radius: 15px;
+    width: 70%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* USER */
+.user-box {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.15);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <div>
+        <h2>🤖 AI Evaluator</h2>
+
+        <a href="/dashboard">🏠 Dashboard</a>
+        <a href="/history">📜 History</a>
+        <a href="/analytics">📊 Analytics</a>
+        <a href="/pdf">📄 PDF Export</a>
+    </div>
+
+    <div class="user-box">
+        👤 {{ current_user.username }}
+    </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <h2>📊 Analytics Dashboard</h2>
+
+    <!-- CHART 1 -->
+    <div class="card">
+        <h3>Relevance Score</h3>
+
+        {% set relevance = r | round(2) %}
+
+        
+    </div>
+
+    <!-- CHART 2 -->
+    <div class="card">
+        <h3>Clarity Score</h3>
+
+        
+    </div>
+
+    <!-- CHART 3 -->
+    <div class="card">
+        <h3>Accuracy Score</h3>
+
+        
+    </div>
+
+    <!-- CHART 4 -->
+    <div class="card">
+        <h3>Consistency Score</h3>
+
+        
+    </div>
+
+</div>
+
+</body>
+</html>

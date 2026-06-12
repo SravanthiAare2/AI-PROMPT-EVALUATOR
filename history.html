@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>History - AI Evaluator</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #EAF4FF, #4DA3FF);
+    display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background: rgba(30,58,138,0.95);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    margin: 10px 0;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+}
+
+.sidebar a:hover {
+    background: #4DA3FF;
+}
+
+/* MAIN */
+.main {
+    margin-left: 270px;
+    padding: 30px;
+    width: 100%;
+}
+
+/* TITLE */
+h2 {
+    color: #0F172A;
+    font-size: 32px;
+}
+
+/* SEARCH BAR */
+.search-box {
+    width: 70%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 70%;
+}
+
+/* TEXT */
+.card p {
+    margin: 5px 0;
+}
+
+/* USER BOX */
+.user-box {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.15);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <div>
+        <h2>🤖 AI Evaluator</h2>
+
+        <a href="/dashboard">🏠 Dashboard</a>
+        <a href="/history">📜 History</a>
+        <a href="/analytics">📊 Analytics</a>
+        <a href="/pdf">📄 PDF Export</a>
+    </div>
+
+    <div class="user-box">
+        👤 {{ current_user.username }}
+    </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <h2>📜 Evaluation History</h2>
+
+    <!-- SEARCH BAR -->
+    <input class="search-box" type="text" id="searchInput"
+        onkeyup="searchHistory()" placeholder="Search prompts or responses...">
+
+    <!-- HISTORY LIST -->
+    <div id="historyList">
+
+        {% for item in data %}
+        <div class="card">
+            <p><b>Prompt:</b> {{ item.prompt }}</p>
+            <p><b>Response:</b> {{ item.response }}</p>
+            <p><b>Relevance:</b> {{ item.relevance }}</p>
+            <p><b>Clarity:</b> {{ item.clarity }}</p>
+            <p><b>Accuracy:</b> {{ item.accuracy }}</p>
+            <p><b>Consistency:</b> {{ item.consistency }}</p>
+            <h3>Overall: {{ item.overall }}</h3>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- SEARCH SCRIPT -->
+<script>
+function searchHistory() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let cards = document.getElementsByClassName("card");
+
+    for (let i = 0; i < cards.length; i++) {
+        let text = cards[i].innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

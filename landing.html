@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Prompt Evaluator</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #EAF4FF, #4DA3FF);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1E3A8A;
+}
+
+.nav-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #1E3A8A;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #4DA3FF;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    margin-top: 80px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+/* CARDS */
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* POPUP SECTION */
+.popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">🤖 AI Prompt Evaluator</div>
+
+    <div class="nav-links">
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>AI Prompt Evaluator</h1>
+    <p>Evaluate AI responses with smart scoring system</p>
+</div>
+
+<!-- CARDS -->
+<div class="card-container">
+
+    <div class="card" onclick="openPopup('use')">
+        <h3>⚡ How to Use</h3>
+        <p>Learn how to evaluate prompts step by step</p>
+    </div>
+
+    <div class="card" onclick="openPopup('why')">
+        <h3>🎯 Why Use</h3>
+        <p>Why this tool improves AI performance</p>
+    </div>
+
+    <div class="card" onclick="openPopup('features')">
+        <h3>🚀 Features</h3>
+        <p>What makes this tool powerful</p>
+    </div>
+
+</div>
+
+<!-- POPUPS -->
+<div id="popup" class="popup">
+    <span class="close" onclick="closePopup()">X</span>
+    <div id="popupText"></div>
+</div>
+
+<script>
+function openPopup(type) {
+    let text = "";
+
+    if(type === "use") {
+        text = "1. Enter Prompt\n2. Enter AI Response\n3. Click Evaluate\n4. Get Score";
+    }
+
+    if(type === "why") {
+        text = "Helps improve AI outputs by measuring clarity, accuracy, and relevance.";
+    }
+
+    if(type === "features") {
+        text = "✔ Scoring System\n✔ User Login\n✔ History Tracking\n✔ PDF Export";
+    }
+
+    document.getElementById("popupText").innerText = text;
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>
